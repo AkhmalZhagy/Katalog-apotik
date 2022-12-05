@@ -1,20 +1,11 @@
 <?php
-//    $hostname = 'localhost';
-//    $username = 'root';
-//    $password = '';
-//    $dbname = 'db_apotik';
+$host = 'masukkan endpoint';
+$user = 'user database';
+$pass = 'pass database';
+$dbname = 'database name';
 
-    $dbhost = $_SERVER['web-apotik.cknejpp11gcg.ap-southeast-1.rds.amazonaws.com'];
-    $dbport = $_SERVER['3306'];
-    $dbname = $_SERVER['web-apotik'];
-    $charset = 'utf8' ;
-
-    $dsn = "mysql:host={$dbhost};port={$dbport};dbname={$dbname};charset={$charset}";
-    $username = $_SERVER['admin'];
-    $password = $_SERVER['admin123'];
-
-$pdo = new PDO($dsn, $username, $password);
-
-    $link = new mysqli($_SERVER['web-apotik.cknejpp11gcg.ap-southeast-1.rds.amazonaws.com'], $_SERVER['admin'], $_SERVER['admin123'], $_SERVER['web-apotik'], $_SERVER['3306']);
-//    $conn = mysqli_connect($hostname, $username, $password, $dbname) or die ('Gagal terhubung ke database');
+$conn = new mysqli($host, $user, $pass, $dbname);
+if($conn->connect_error){
+        die('Connect error: '.$conn->connect_error);
+}
 ?>
